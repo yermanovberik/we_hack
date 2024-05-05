@@ -1,0 +1,42 @@
+spring:
+  jmx:
+    enabled: false
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ogbuda0011@gmail.com
+    password: konb hqfr cfft qttn
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+      protocol: smtp
+  datasource:
+    url: jdbc:postgresql://monorail.proxy.rlwy.net:20423/railway
+    username: postgres
+    password: EOkzlBXfVPzqMxJoFWkRqwOXepvteEHG
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: true
+
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      access-token-expiration: 86400000 # a day
+      refresh-token-expiration: 604800000 # 7 days
+
+  time-zone: Z
+
+
+stripe:
+  secretKey: sk_test_51NvFT9DMd4BkEMbZ6ui5Cm5kCG7PVY07WleHTmmvOXmydkZsYLne6YrjiJqjIjVFZyYiYBzPvApOw5mrR4SkIs3i00Oo9ETQ5L
