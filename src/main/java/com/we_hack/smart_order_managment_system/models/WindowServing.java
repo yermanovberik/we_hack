@@ -1,32 +1,34 @@
 package com.we_hack.smart_order_managment_system.models;
 
+import com.we_hack.smart_order_managment_system.enums.Status;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "window_")
-public class Window {
+@Table(name = "window_serving")
+public class WindowServing {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "numberOfWindow")
-    private Long numberOfWindow;
+    @OneToOne
+    private Ticket currentTicket;
 
-    @Column(name = "is_available")
-    private Boolean isAvailable;
+    @ManyToOne
+    private Window window;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private Status status;
 
 }
-

@@ -1,16 +1,34 @@
 package com.we_hack.smart_order_managment_system.models;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
+import com.we_hack.smart_order_managment_system.repositories.TicketRepository;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public class Queue {
+import java.time.LocalDateTime;
+
+import java.util.List;
+
+@Entity
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "queue")
+public class  Queue {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    private Window window;
+    @OneToOne
+    private Ticket ticket;
 
-    private User user;
-
+    @Column(name = "date_time")
     private LocalDateTime dateTime;
 
-    private LocalTime expectedTime;
+
 }
